@@ -155,3 +155,35 @@ func main() {
 
 	}
 }
+
+
+
+
+def smart_temperature(value):
+
+
+    try:
+        if isinstance(value, list):
+            value = value[0]
+        else:
+            celsius = float(value) 
+    except (ValueError, TypeError, IndexError):
+        return "Invalid temperature"
+
+
+    fahrenheit = (celsius * 9/5) + 32 
+
+    status = fahrenheit  
+
+    if celsius <= 0:
+        status = "freezing"
+    elif celsius < 20:
+        status = "cold"
+    elif celsius <= 30:
+        status = "warm"
+    else:
+        status = "hot"
+
+    return f"Celsius: {celsius}\nFahrenheit: {fahrenheit}\nStatus: {status}"    
+print(smart_temperature(0))
+                   
